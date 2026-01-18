@@ -1,0 +1,61 @@
+[gd_scene load_steps=3 format=3 uid="uid://d4go873yu7jbe"]
+
+[ext_resource type="PackedScene" uid="uid://d3ir376df04gd" path="res://Scenes/main.tscn" id="1_2mdbu"]
+[ext_resource type="Script" uid="uid://dcbmt2v48vxmm" path="res://addons/godot_rl_agents/sync.gd" id="2_3jvtu"]
+
+[node name="Training Ground" type="Node3D"]
+
+[node name="Main" parent="." instance=ExtResource("1_2mdbu")]
+
+[node name="Main2" parent="." instance=ExtResource("1_2mdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.307032, 0, 0)
+
+[node name="Main3" parent="." instance=ExtResource("1_2mdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.23068953, 0, 11.349896)
+
+[node name="Main4" parent="." instance=ExtResource("1_2mdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.537722, 0, 11.349896)
+
+[node name="Main5" parent="." instance=ExtResource("1_2mdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.959068, 0, 0.4060669)
+
+[node name="Main6" parent="." instance=ExtResource("1_2mdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.266098, 0, 0.4060669)
+
+[node name="Main7" parent="." instance=ExtResource("1_2mdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.189758, 0, 11.755963)
+
+[node name="Main8" parent="." instance=ExtResource("1_2mdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.496788, 0, 11.755963)
+
+[node name="Main9" parent="." instance=ExtResource("1_2mdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.020662308, -1.9073486e-06, -24.135767)
+
+[node name="Main10" parent="." instance=ExtResource("1_2mdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.327694, -1.9073486e-06, -24.135767)
+
+[node name="Main11" parent="." instance=ExtResource("1_2mdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.25135183, -1.9073486e-06, -12.785871)
+
+[node name="Main12" parent="." instance=ExtResource("1_2mdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.558384, -1.9073486e-06, -12.785871)
+
+[node name="Main13" parent="." instance=ExtResource("1_2mdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 21.97973, -1.9073486e-06, -23.7297)
+
+[node name="Main14" parent="." instance=ExtResource("1_2mdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.28676, -1.9073486e-06, -23.7297)
+
+[node name="Main15" parent="." instance=ExtResource("1_2mdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 22.21042, -1.9073486e-06, -12.379804)
+
+[node name="Main16" parent="." instance=ExtResource("1_2mdbu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.51745, -1.9073486e-06, -12.379804)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.49553448, 0.8685883, 0, -0.8685883, 0.49553448, 18.370457, 18.126383, 14.239071)
+
+[node name="Sync" type="Node" parent="."]
+script = ExtResource("2_3jvtu")
+speed_up = 2.0
+metadata/_custom_type_script = "uid://dcbmt2v48vxmm"

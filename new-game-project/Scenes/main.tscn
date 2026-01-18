@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=3 uid="uid://d3ir376df04gd"]
+
+[ext_resource type="Script" uid="uid://bendadsc2jec2" path="res://Scripts/cube.gd" id="1_jjgbg"]
+[ext_resource type="Script" uid="uid://debsih0vjjet2" path="res://Scripts/ai_controller_3d.gd" id="2_bo1nx"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7u77a"]
+emission_enabled = true
+emission = Color(0.7342442, 0.31472227, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_jjgbg"]
+material = SubResource("StandardMaterial3D_7u77a")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bo1nx"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_8gbba"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_jjvhh"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kry3j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_21xkr"]
+emission_enabled = true
+emission = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6bp64"]
+material = SubResource("StandardMaterial3D_21xkr")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jjgbg"]
+
+[node name="Main" type="Node3D"]
+
+[node name="Cube" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0206122, 0.4222209, -0.20361876)
+script = ExtResource("1_jjgbg")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Cube"]
+mesh = SubResource("BoxMesh_jjgbg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube"]
+shape = SubResource("BoxShape3D_bo1nx")
+
+[node name="AIController3D" type="Node3D" parent="Cube"]
+script = ExtResource("2_bo1nx")
+metadata/_custom_type_script = "uid://criganxc4s2oe"
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(10, 0, 0, 0, 0.1, 0, 0, 0, 10, 0.4684444, -0.43465036, 0.3895023)
+mesh = SubResource("BoxMesh_8gbba")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_jjvhh")
+
+[node name="Target" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.466223, -0.5589545, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Target"]
+shape = SubResource("BoxShape3D_kry3j")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Target"]
+mesh = SubResource("BoxMesh_6bp64")
+
+[node name="Walls" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0.39207006, 2.3841858e-07, 5.8467197)
+shape = SubResource("BoxShape3D_jjgbg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(-4.371139e-07, 0, 1, 0, 10, 0, -10, 0, -4.371139e-08, 5.957905, 0, 0.38438177)
+shape = SubResource("BoxShape3D_jjgbg")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(10, 0, 0, 0, 10, 0, 0, 0, 1, 0.46125793, 0, -5.1314836)
+shape = SubResource("BoxShape3D_jjgbg")
+
+[node name="CollisionShape3D4" type="CollisionShape3D" parent="Walls"]
+transform = Transform3D(-4.371139e-07, 0, 1, 0, 10, 0, -10, 0, -4.371139e-08, -5.035389, 0, 0.36516213)
+shape = SubResource("BoxShape3D_jjgbg")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="body_entered" from="Target" to="Cube" method="_on_target_body_entered"]
+[connection signal="body_entered" from="Walls" to="Cube" method="_on_walls_body_entered"]
+[connection signal="timeout" from="Timer" to="Cube" method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="Cube" method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer2" to="Cube" method="_on_timer_timeout"]
